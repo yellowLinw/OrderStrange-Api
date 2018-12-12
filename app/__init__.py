@@ -3,7 +3,7 @@
 
 from flask import Flask
 
-from app.api.Dashboard import dash
+from app.api.dashboard import dash
 
 DEFAULT_APP_NAME = 'ORDER'
 
@@ -13,7 +13,6 @@ DEFAULT_MODULES = [
 
 
 def create_app():
-    # 多对多
     app = Flask(DEFAULT_APP_NAME)
     setting_modules(app, DEFAULT_MODULES)
 

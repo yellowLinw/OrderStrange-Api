@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from app.api.Dashboard import dash
+from app.api.dashboard import dash
 
 
-@dash.route('/index')
+@dash.route('/')
 def index():
     return 'dash'
