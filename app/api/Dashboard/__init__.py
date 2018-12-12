@@ -3,4 +3,6 @@
 
 from flask import Blueprint
 
-dash = Blueprint('Dashboard', __name__)
+dash = Blueprint('dashboard', __name__)
+
+from app.api.dashboard import index
