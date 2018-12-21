@@ -5,7 +5,7 @@ from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
-from app.api.dashboard import dash
+from app.api import *
 from config import Config
 
 DEFAULT_APP_NAME = 'ORDER'
@@ -39,4 +39,4 @@ def setting_modules(app, modules):
         app.register_blueprint(module, url_prefix=url_prefix)
 
 
-from app.models import User
+from app.models import *
