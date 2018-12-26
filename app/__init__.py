@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask
+from flask_exceptions import AddExceptions
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 from app.api import *
+from common.jwt import jwt
 from config import Config
 
 DEFAULT_APP_NAME = 'ORDER'
@@ -19,6 +21,8 @@ db = SQLAlchemy()
 # flask_migrate plugin
 migrate = Migrate()
 
+exception = AddExceptions()
+
 
 def create_app(config=Config):
     app = Flask(DEFAULT_APP_NAME)
@@ -29,6 +33,8 @@ def create_app(config=Config):
 
     db.init_app(app)
     migrate.init_app(app, db)
+    jwt.init_app(app)
+    exception.init_app(app)
 
     return app
 

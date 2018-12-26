@@ -46,5 +46,11 @@ pipreqs [options] <path> --encoding=utf8 --force
     
 生成安装类库requirements
 pip freeze
+
+生成随机SECRET_KEY
+命令行
+import os
+os.urandom(size)
+
 ```
 
