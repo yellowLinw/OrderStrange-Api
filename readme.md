@@ -31,7 +31,7 @@ cp .env.example .env
 
 ```
 flask db init
-flask db migrate
+flask db migrate  #修改迁移,插入初始数据
 flask db upgrade
 ```
 
