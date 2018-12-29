@@ -4,9 +4,11 @@
 from datetime import datetime
 
 from flask_bcrypt import generate_password_hash, check_password_hash
-from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP, text
+from sqlalchemy import (
+    Column, Integer, String, Boolean, TIMESTAMP, text, ForeignKey
+)
 
-from app.models.base import Base
+from app.models.base import Base, db
 
 
 class Administrator(Base):
@@ -21,6 +23,10 @@ class Administrator(Base):
     is_super = Column(Boolean, nullable=False, server_default=text('0'), comment='是否超级管理员')
     update_at = Column(TIMESTAMP, nullable=True, default=datetime.now, onupdate=datetime.now)
     create_at = Column(TIMESTAMP, nullable=True, default=datetime.now)
+
+    role_id = Column(Integer, ForeignKey('roles.id'))
+    role = db.relationship('Role',
+                           backref=db.backref('administrators', lazy='dynamic'))
 
     _fields = Base.load_all_data_field()
 
