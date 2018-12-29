@@ -5,4 +5,4 @@ from flask import Blueprint
 
 dash = Blueprint('dashboard', __name__)
 
-from app.api.dashboard import *
+from app.api.dashboard import index, authorizations
