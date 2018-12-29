@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from app import db
+from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
+# flask_migrate plugin
+migrate = Migrate()
 
 class Base(db.Model):
     # 模型不生成表
@@ -31,3 +35,10 @@ class Base(db.Model):
         for key in keys:
             self._fields.append(key)
         return self
+
+    def to_json(self):
+        dict = self.__dict__
+        if "_sa_instance_state" in dict:
+            del dict["_sa_instance_state"]
+
+        return dict

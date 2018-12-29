@@ -19,8 +19,6 @@ class Administrator(Base):
     avatar = Column(String(255), nullable=False, server_default="", comment="头像")
     is_active = Column(Boolean, nullable=False, server_default=text('1'), comment='是否启用')
     is_super = Column(Boolean, nullable=False, server_default=text('0'), comment='是否超级管理员')
-    last_logged_ip = Column(Integer, nullable=True, comment='上次登录IP')
-    last_logged_at = Column(TIMESTAMP, nullable=True)
     update_at = Column(TIMESTAMP, nullable=True, default=datetime.now, onupdate=datetime.now)
     create_at = Column(TIMESTAMP, nullable=True, default=datetime.now)
 
