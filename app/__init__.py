@@ -33,3 +33,6 @@ def register_api_blueprint(app, modules):
     # 注册Blueprint模块
     for module, url_prefix in modules:
         app.register_blueprint(module, url_prefix=url_prefix)
+
+
+from app.models import *
