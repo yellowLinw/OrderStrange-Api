@@ -28,7 +28,7 @@ class Administrator(Base):
     role = db.relationship('Role',
                            backref=db.backref('administrators', lazy='dynamic'))
 
-    _fields = Base.load_all_data_field()
+    _hidden = ['_password']
 
     @property
     def password(self):

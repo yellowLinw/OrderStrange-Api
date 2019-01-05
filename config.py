@@ -17,3 +17,5 @@ class Config():
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES")))
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(minutes=int(os.getenv("JWT_REFRESH_TOKEN_EXPIRES")))
     JWT_HEADER_TYPE = os.getenv("JWT_HEADER_TYPE")
+    JWT_BLACKLIST_ENABLED = os.getenv("JWT_BLACKLIST_ENABLED")
+    JWT_BLACKLIST_TOKEN_CHECKS = os.getenv("JWT_BLACKLIST_TOKEN_CHECKS")

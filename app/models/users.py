@@ -22,5 +22,3 @@ class User(Base):
     last_logged_at = Column(TIMESTAMP, nullable=True, comment="上次登录时间")
     create_at = Column(TIMESTAMP, nullable=True, default=datetime.now, onupdate=datetime.now)
     update_at = Column(TIMESTAMP, nullable=True, default=datetime.now)
-
-    _fields = Base.load_all_data_field()
