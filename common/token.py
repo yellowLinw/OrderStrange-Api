@@ -8,10 +8,11 @@ from config import Config, os
 
 def access_token(identity, fresh=True):
     return {
-        'access_token': Config.JWT_HEADER_TYPE + ' ' + create_access_token(
+        'header_type': Config.JWT_HEADER_TYPE,
+        'access_token': create_access_token(
             identity=identity, fresh=fresh
         ),
-        'refresh_token': Config.JWT_HEADER_TYPE + ' ' + create_refresh_token(identity=identity),
+        'refresh_token': create_refresh_token(identity=identity),
         'expires_in': int(os.getenv("JWT_ACCESS_TOKEN_EXPIRES")) * 60,
         'refresh_in': int(os.getenv("JWT_REFRESH_TOKEN_EXPIRES")) * 60
     }
